@@ -10,6 +10,25 @@ const dateDays = document.querySelector('.value[data-days]');
 const dateHours = document.querySelector('.value[data-hours]');
 const dateMinutes = document.querySelector('.value[data-minutes]');
 const dateSeconds = document.querySelector('.value[data-seconds]');
+const fields = document.querySelectorAll('.field');
+const labels = document.querySelectorAll('.label');
+const timer = document.querySelector('.timer');
+
+timer.style.display = 'flex';
+
+for (let field of fields) {
+  field.style.marginRight = '15px';
+  field.style.textAlign = 'center';
+  field.style.fontSize = '36px';
+  field.style.fontWeight = '500';
+}
+
+for (let label of labels) {
+  label.style.display = 'block';
+  label.style.fontSize = '12px';
+  label.style.fontWeight = '600';
+  label.style.textTransform = "uppercase";
+}
 
 const options = {
   enableTime: true,
@@ -66,7 +85,7 @@ const updateCount = ({ days, hours, minutes, seconds }) => {
 
 const start = () => {
   const futureDate = new Date(calendar.selectedDates[0]);
-   intervalCount = setInterval(() => {
+  intervalCount = setInterval(() => {
     const currentDate = Date.now();
     const countDown = futureDate - currentDate;
     const transformedTime = convertMs(countDown);
