@@ -64,12 +64,13 @@ const updateCount = ({ days, hours, minutes, seconds }) => {
 
 const start = () => {
   const futureDate = new Date(calendar.selectedDates[0]);
-  setInterval(() => {
+   intervalCount = setInterval(() => {
     const currentDate = Date.now();
     const countDown = futureDate - currentDate;
     const transformedTime = convertMs(countDown);
     if (countDown < 1000) {
       dateSeconds.textContent = '00';
+      clearInterval(intervalCount);
       return;
     }
     updateCount(transformedTime);

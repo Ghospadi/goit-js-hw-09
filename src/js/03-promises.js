@@ -14,12 +14,12 @@ const onClick = e => {
   let amountDelays = +amount.value;
 
   for (let startPosition = 1; startPosition <= amountDelays; startPosition++) {
-    createPromise(startPosition, firstDelay);
+    const shouldResolve = Math.random() > 0.3;
+    createPromise(startPosition, firstDelay, shouldResolve);
     firstDelay += stepDelay;
   }
 };
-function createPromise(position, delay) {
-  const shouldResolve = Math.random() > 0.3;
+function createPromise(position, delay, shouldResolve) {
   const promise = new Promise((resolve, reject) => {
     setTimeout(() => {
       if (shouldResolve) {

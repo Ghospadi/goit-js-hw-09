@@ -15,7 +15,7 @@ const onColorChange = () => {
 };
 
 const startTimer = () => {
-  timer = setInterval(onColorChange, 750);
+  timer = setInterval(onColorChange, 1000);
   startButton.disabled = true;
 };
 
