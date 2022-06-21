@@ -64,7 +64,7 @@ const updateCount = ({ days, hours, minutes, seconds }) => {
 
 const start = () => {
   const futureDate = new Date(calendar.selectedDates[0]);
-   intervalCount = setInterval(() => {
+   const intervalCount = setInterval(() => {
     const currentDate = Date.now();
     const countDown = futureDate - currentDate;
     const transformedTime = convertMs(countDown);
