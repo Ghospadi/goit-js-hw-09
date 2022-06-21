@@ -26,6 +26,8 @@ const options = {
   },
 };
 
+let intervalCount;
+
 //
 
 // Functions
@@ -64,7 +66,7 @@ const updateCount = ({ days, hours, minutes, seconds }) => {
 
 const start = () => {
   const futureDate = new Date(calendar.selectedDates[0]);
-   const intervalCount = setInterval(() => {
+   intervalCount = setInterval(() => {
     const currentDate = Date.now();
     const countDown = futureDate - currentDate;
     const transformedTime = convertMs(countDown);
